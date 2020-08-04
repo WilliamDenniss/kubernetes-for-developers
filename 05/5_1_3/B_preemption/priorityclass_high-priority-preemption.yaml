@@ -12,21 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: apps/v1
-kind: Deployment
+#
+# A high priority class definition that will preempt lower-priority running Pods
+#
+
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
 metadata:
-  name: pluscode
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: pluscode
-  template:
-    metadata:
-      labels:
-        app: pluscode
-    spec:
-      containers:
-      - name: pluscode-container
-        image: wdenniss/pluscode-demo:latest
-      priorityClassName: high-priority
+  name: high-priority-preemption
+value: 1000000
+preemptionPolicy: PreemptLowerPriority
+globalDefault: false
+description: "Critical services."
