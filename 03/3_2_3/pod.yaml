@@ -12,23 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: mariadb-deploy
+  name: pluscode-demo
+  labels:
+    app: pluscode
 spec:
-  replicas: 20
-  selector:
-    matchLabels:
-      app: mariadb
-  template:
-    metadata:
-      labels:
-        app: mariadb
-    spec:
-      containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+  containers:
+      - name: pluscode-container
+        image: wdenniss/pluscode-demo:latest

@@ -15,20 +15,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariadb-deploy
+  name: balloon-deploy
 spec:
-  replicas: 20
+  replicas: 10
   selector:
     matchLabels:
-      app: mariadb
+      app: balloon
   template:
     metadata:
       labels:
-        app: mariadb
+        app: balloon
     spec:
+      priorityClassName: balloon-priority
+      terminationGracePeriodSeconds: 0
       containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+      - name: ubuntu
+        image: ubuntu
+        command: ["sleep"]
+        args: ["infinity"]
+        resources:
+            requests:
+              cpu: 200m
+              memory: 250Mi

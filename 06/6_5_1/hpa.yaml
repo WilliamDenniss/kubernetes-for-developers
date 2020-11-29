@@ -12,23 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
 metadata:
-  name: mariadb-deploy
+  name: pluscode-autoscaler
 spec:
-  replicas: 20
-  selector:
-    matchLabels:
-      app: mariadb
-  template:
-    metadata:
-      labels:
-        app: mariadb
-    spec:
-      containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+  minReplicas: 1
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pluscode-demo
+  metrics:
+  - type: External
+    external:
+      metricName: loadbalancing.googleapis.com|https|request_count
+      metricSelector:
+        matchLabels:
+          resource.labels.forwarding_rule_name: k8s2-fr-pqqby6yf-default-pluscode-ingress-hrsjzvkf
+      targetAverageValue: 5

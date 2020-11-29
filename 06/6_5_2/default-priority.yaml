@@ -12,23 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
 metadata:
-  name: mariadb-deploy
-spec:
-  replicas: 20
-  selector:
-    matchLabels:
-      app: mariadb
-  template:
-    metadata:
-      labels:
-        app: mariadb
-    spec:
-      containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+  name: default-priority
+value: 0
+preemptionPolicy: PreemptLowerPriority
+globalDefault: true
+description: "The global default priority. Will preempt the balloon pods."

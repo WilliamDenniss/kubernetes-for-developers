@@ -15,20 +15,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariadb-deploy
+  name: pluscode
 spec:
-  replicas: 20
   selector:
     matchLabels:
-      app: mariadb
+      app: pluscode
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
   template:
     metadata:
       labels:
-        app: mariadb
+        app: pluscode
     spec:
       containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+      - name: pluscode-container
+        image: wdenniss/pluscode-demo:latest

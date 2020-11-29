@@ -15,7 +15,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pluscode
+  name: pluscode-demo
 spec:
   replicas: 3
   selector:
@@ -28,4 +28,4 @@ spec:
     spec:
       containers:
       - name: pluscode-container
-        image: wdenniss/pluscode-demo:latest
+        image: docker.io/wdenniss/pluscode-demo:latest 

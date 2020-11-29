@@ -15,20 +15,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariadb-deploy
+  name: pluscode-demo
 spec:
-  replicas: 20
+  replicas: 1
   selector:
     matchLabels:
-      app: mariadb
+      app: pluscode
   template:
     metadata:
       labels:
-        app: mariadb
+        app: pluscode
     spec:
       containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+      - name: pluscode-container
+        image: wdenniss/pluscode-demo:v2
+        resources:
+            requests:
+              cpu: 200m
+              memory: 250Mi
+

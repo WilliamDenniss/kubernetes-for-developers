@@ -12,23 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
 metadata:
-  name: mariadb-deploy
+  name: pluscode-ingress
 spec:
-  replicas: 20
-  selector:
-    matchLabels:
-      app: mariadb
-  template:
-    metadata:
-      labels:
-        app: mariadb
-    spec:
-      containers:
-      - name: mariadb-container
-        image: mariadb
-        env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+  tls:
+    - secretName: my-tls-cert
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: pluscode-service
+          servicePort: 80
+      - path: /pc2
+        pathType: Prefix
+        backend:
+          serviceName: pluscode-service
+          servicePort: 80
