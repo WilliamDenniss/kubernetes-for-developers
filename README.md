@@ -1,7 +1,7 @@
-# Getting Started with Kubernetes
+# Kubernetes Quickly
 
 Code samples and experiments to accompany the book
-[Getting Started with Kubernetes](https://www.manning.com/books/getting-started-with-kubernetes),
+[Kubernetes Quickly](https://www.manning.com/books/kubernetes-quickly),
 by William Denniss.
 
 *This is not an officially supported Google product*
