@@ -8,14 +8,13 @@ by William Denniss.
 
 ## How to Use This Repository
 
-The folder names (01, 02, etc) correspond to the chapters in the book. There's a subfolder for each
-subsection, so samples for Section 5.1.3 in Chapter 5 are found in folder `05/5_1_3`.
+The folder names (Chapter01, Chapter02, etc) correspond to the chapters in the book. There's a subfolder for each
+subsection, so samples for Section 5.1.3 in Chapter 5 are found in folder `Chapter05/5.1.3_DescriptiveTitle`. If
+a section has multiple discrete samples, they will be in separate folders like `Chapter05/5.1.3_Sample1`, 
+`Chapter05/5.1.3_Sample2`.
 
 All the code listings in the book are included as files in this repo. The intent is to make it
 easy to grab the files and try them out yourself, following along with the text of the book.
-
-When a section has multiple discrete samples that should be run independently, they are arranged
-into folders and ordered alphabetically, like `A_concept`, `B_concept`
 
 In some cases I've included a more comprehensive sample or experiment in this repo than what's in
 the book, in order for you to easily try the concept out yourself. In those cases, the folder
