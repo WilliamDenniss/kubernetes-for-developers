@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM debian
-RUN apt-get update -qq
-RUN apt-get install ruby2.5 -y
+FROM ruby
 COPY . /app
 WORKDIR /app
+CMD ruby helloworld.rb

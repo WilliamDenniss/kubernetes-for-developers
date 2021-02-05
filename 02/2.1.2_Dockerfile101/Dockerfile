@@ -12,9 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ruby:2.5
+FROM debian
 RUN apt-get update -qq
-RUN apt-get install -y mariadb-client
+RUN apt-get install -y ruby
 COPY . /app
-WORKDIR /app
-CMD ruby helloworld.rb
+WORKDIR /app 
