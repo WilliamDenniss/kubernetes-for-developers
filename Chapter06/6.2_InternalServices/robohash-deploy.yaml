@@ -12,18 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#
+# The deployment for an microservice to generate avatars
+#
+
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pluscode
+  name: robohash
 spec:
-  replicas: 6
+  replicas: 1
+
   selector:
     matchLabels:
-      app: pluscode
+      app: robohash
   template:
     metadata:
       labels:
-        app: pluscode
+        app: robohash
     spec:
       containers:
-      - name: pluscode-container
-        image: wdenniss/pluscode-demo:latest
+      - name: robohash-container
+        image: wdenniss/robohash:v1
+
