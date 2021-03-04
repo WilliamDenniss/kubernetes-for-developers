@@ -1,0 +1,6 @@
+version: '2'
+services:
+  sync:
+    build: .
+    ports:
+      - "8079:80"
