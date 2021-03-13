@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pluscode-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pluscode
+  template:
+    metadata:
+      labels:
+        app: pluscode
+    spec:
+      containers:
+      - name: pluscode-container
+        image: docker.io/wdenniss/pluscode-demo:latest
+        env:
+        - name: AVATAR_ENDPOINT
+          value: http://robohash-internal
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: secrets-production
+              key: SECRET_KEY
