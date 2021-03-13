@@ -1,13 +1,16 @@
 # docs: https://docs.python.org/3/library/http.server.html
 
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from datetime import datetime
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(bytes("Hello docker","utf-8")) 
+        now = datetime.now()
+        response_string = now.strftime("%Y-%m-%d %H:%M:%S")
+        self.wfile.write(bytes(response_string,"utf-8")) 
 
 def startServer():
     try:
