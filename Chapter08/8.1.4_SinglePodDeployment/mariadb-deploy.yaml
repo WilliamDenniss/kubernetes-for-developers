@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb-container
+        image: mariadb:latest
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mariadb-volume
+        resources:
+            requests:
+              cpu: 1
+              memory: 4Gi
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "your database password"
+      volumes:
+      - name: mariadb-volume
+        persistentVolumeClaim:
+          claimName: mariadb-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
