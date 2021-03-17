@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mariadb
+spec:
+  selector:
+    matchLabels:
+      app: mariadb-sts
+  serviceName: mariadb-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mariadb-sts
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mariadb-container
+        image: mariadb:latest
+        volumeMounts:
+        - name: mariadb-pvc
+          mountPath: /var/lib/mysql
+        resources:
+            requests:
+              cpu: 1
+              memory: 4Gi
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: "your database password"
+  volumeClaimTemplates:
+  - metadata:
+      name: mariadb-pvc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb-service
+spec:
+  ports:
+  - port: 3306
+  clusterIP: None
+  selector:
+    app: mariadb-sts
