@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  master.conf: |
+    bind 0.0.0.0
+    port 6379
+    protected-mode no
+    appendonly yes
+    dir /redis/data
+  replica.conf: |
+    replicaof redis-0.redis-service 6379
+    bind 0.0.0.0
+    port 6379
+    protected-mode no
+    appendonly yes
+    dir /redis/data
