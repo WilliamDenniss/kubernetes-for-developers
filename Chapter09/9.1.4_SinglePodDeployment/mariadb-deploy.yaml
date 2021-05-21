@@ -28,12 +28,12 @@ spec:
       volumes:
       - name: mariadb-volume
         persistentVolumeClaim:
-          claimName: mariadb-pv-claim
+          claimName: mariadb-pvc
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mariadb-pv-claim
+  name: mariadb-pvc
 spec:
   accessModes:
     - ReadWriteOnce

@@ -31,10 +31,11 @@ spec:
   - metadata:
       name: mariadb-pvc
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes:
+        - ReadWriteOnce
       resources:
         requests:
-          storage: 1Gi
+          storage: 2Gi
 ---
 apiVersion: v1
 kind: Service
