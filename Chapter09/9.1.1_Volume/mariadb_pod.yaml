@@ -13,7 +13,7 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - us-west1-a
+            - us-west1-a # The region of the disk
   containers:
   - name: mariadb-container
     image: mariadb:latest
@@ -26,8 +26,13 @@ spec:
   volumes:
   - name: mariadb-volume
     gcePersistentDisk:
-      pdName: mariadb-disk
+      pdName: mariadb-disk # A disk with this name must exist in the region used above. See instructions below.
       fsType: ext4
 
-# Note: disk must exist, e.g.:
-# gcloud compute disks create --size=10GB --zone=us-west1-a mariadb-disk
+# Note: This method of attaching disks to Pods is completely manual.
+#       You need to create the disk resource outside of Kubernetes first.
+#       Be sure that the region of the disk and the Pod match (update the nodeAffinity if needed).
+#       For this example in GCP using the zone us-west-1a, and a disk with the name `mariadb-disk` you
+#       can run:
+#       `gcloud compute disks create --size=10GB --zone=us-west1-a mariadb-disk`
+
