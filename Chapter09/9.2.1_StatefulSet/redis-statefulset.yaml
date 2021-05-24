@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis-sts
+  serviceName: redis-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: redis-sts
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: redis-container
+        image: redis:latest
+        command: ["redis-server"]
+        args: ["/redis/conf/redis.conf"]
+        volumeMounts:
+        - name: redis-configmap-volume
+          mountPath: /redis/conf/
+        - name: redis-pvc
+          mountPath: /redis/data
+        resources:
+            requests:
+              cpu: 1
+              memory: 4Gi
+      volumes:
+      - name: redis-configmap-volume
+        configMap:
+          name: redis-config
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-pvc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+spec:
+  ports:
+  - port: 6379
+  clusterIP: None
+  selector:
+    app: redis-sts
