@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: addwork
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: docker.io/wdenniss/pi_worker:v1
+        command: ["python3",  "add_jobs.py"]
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_HOST
+          value: redis-0.redis-service
+        - name: PYTHONUNBUFFERED
+          value: "1"
+      restartPolicy: Never
