@@ -1,7 +1,7 @@
-# Kubernetes Quickly
+# Kubernetes for Developers
 
 Code samples and experiments to accompany the book
-[Kubernetes Quickly](https://www.manning.com/books/kubernetes-quickly),
+[Kubernetes for Developers](https://www.manning.com/books/kubernetes-for-developers),
 by William Denniss.
 
 *This is not an officially supported Google product*
