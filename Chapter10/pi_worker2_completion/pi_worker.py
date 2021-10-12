@@ -17,10 +17,10 @@ signal.signal(signal.SIGTERM, signal_handler)
 
 print("starting")
 while running:
-  job = r.blpop('queue:job', 5)
-  if job != None:
-    iterations = int(job[1])
-    print("got job: " + str(iterations))
+  task = r.blpop('queue:task', 5)
+  if task != None:
+    iterations = int(task[1])
+    print("got task: " + str(iterations))
     pi = leibniz_pi(iterations)
     print (pi)
   else:

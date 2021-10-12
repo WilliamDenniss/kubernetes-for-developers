@@ -9,8 +9,8 @@ random.seed()
 for i in range(0, 10):
   rand = random.randint(10,100)
   iterations = rand * 100000
-  r.rpush('queue:job', iterations)
-  print("added job: " + str(iterations))
+  r.rpush('queue:task', iterations)
+  print("added task: " + str(iterations))
 
-print("queue depth", str(r.llen('queue:job')))
+print("queue depth", str(r.llen('queue:task')))
 print ("done")
