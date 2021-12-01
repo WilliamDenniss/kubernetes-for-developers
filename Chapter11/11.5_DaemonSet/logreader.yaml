@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: logreader
+spec:
+  selector:
+    matchLabels:
+      ds: logreaderpod
+  template:
+    metadata:
+      labels:
+        ds: logreaderpod
+    spec:
+      containers:
+      - image: ubuntu
+        command: ["tail", "-f", "/var/log/kube-proxy.log"]
+        name: logreadercontainer
+        resources:
+          requests:
+            cpu: 50m
+            memory: 100Mi
+            ephemeral-storage: 100Mi
+        volumeMounts:
+        - name: logpath
+          mountPath: /var/log
+          readOnly: true
+      volumes:
+      - hostPath:
+          path: /var/log
+        name: logpath
