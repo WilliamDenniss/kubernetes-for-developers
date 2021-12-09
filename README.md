@@ -6,7 +6,7 @@ by William Denniss.
 
 *This is not an officially supported Google product*
 
-<img src="Denniss-Kubernetes-MEAP_720.png" width="360" height="480">
+<img src="Denniss-Kubernetes-720.png" width="360">
 
 ## How to Use This Repository
 
