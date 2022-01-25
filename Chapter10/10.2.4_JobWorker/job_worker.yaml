@@ -16,4 +16,6 @@ spec:
           value: redis-0.redis-service
         - name: PYTHONUNBUFFERED
           value: "1"
+        - name: COMPLETE_WHEN_EMPTY
+          value: "1"
       restartPolicy: Never

@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pi-worker-autoscaler
+spec:
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 20
+  scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: pi-worker

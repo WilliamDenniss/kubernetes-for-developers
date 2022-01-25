@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pi
+  template:
+    metadata:
+      labels:
+        app: pi
+    spec:
+      containers:
+      - name: pi-container
+        image: docker.io/wdenniss/pi_worker:v1
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_HOST
+          value: redis-0.redis-service
+        - name: PYTHONUNBUFFERED
+          value: "1"

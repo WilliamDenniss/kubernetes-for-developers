@@ -6,17 +6,16 @@ spec:
   schedule: "*/5 * * * *"
   jobTemplate:
     spec:
+      backoffLimit: 2
       template:
         spec:
           containers:
           - name: pi
-            image: docker.io/wdenniss/pi_worker:v1
-            command: ["python3",  "add_jobs.py"]
-            imagePullPolicy: Always
+            image: docker.io/wdenniss/pi_worker:v2
+            command: ["python3",  "add_tasks.py"]
             env:
             - name: REDIS_HOST
               value: redis-0.redis-service
             - name: PYTHONUNBUFFERED
               value: "1"
           restartPolicy: Never
-      backoffLimit: 2

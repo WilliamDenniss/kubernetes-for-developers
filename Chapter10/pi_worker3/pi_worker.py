@@ -24,6 +24,6 @@ while running:
     pi = leibniz_pi(iterations)
     print (pi)
   else:
-    #todo (if terminate?)
-    print ("no more work")
-    running = False
+    if os.getenv('COMPLETE_WHEN_EMPTY', '0') != '0':
+      print ("no more work")
+      running = False

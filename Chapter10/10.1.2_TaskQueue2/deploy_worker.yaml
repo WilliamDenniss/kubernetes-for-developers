@@ -21,3 +21,9 @@ spec:
           value: redis-0.redis-service
         - name: PYTHONUNBUFFERED
           value: "1"
+        resources:
+            requests:
+              cpu: 250m
+              memory: 250Mi
+      terminationGracePeriodSeconds: 120
+
