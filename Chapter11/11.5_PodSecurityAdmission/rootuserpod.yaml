@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pluscode-demo
+  labels:
+    app: pluscode
+spec:
+  containers:
+  - name: pluscode-container
+    image: wdenniss/pluscode-demo:latest
