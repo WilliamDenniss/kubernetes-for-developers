@@ -2,6 +2,5 @@ FROM python:3
 COPY . /app
 WORKDIR /app 
 RUN mkdir logs
-CMD python3 server.py
 RUN chgrp -R 0 logs && chmod -R g+rwX logs
 CMD python3 server.py
