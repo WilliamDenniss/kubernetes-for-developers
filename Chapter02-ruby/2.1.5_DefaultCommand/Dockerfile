@@ -1,4 +1,4 @@
 FROM ruby
 COPY . /app
 WORKDIR /app
-CMD ruby helloworld.rb
+CMD ruby hello.rb
