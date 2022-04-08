@@ -1,0 +1,7 @@
+services:
+  web:
+    build: ../timeserver_app
+    command: python3 server.py
+    ports:
+      - "8080:80"
+

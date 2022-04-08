@@ -1,9 +1,9 @@
-# docs: https://docs.python.org/3/library/http.server.html
-
+from reloading import reloading
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from datetime import datetime
 
 class RequestHandler(BaseHTTPRequestHandler):
+    @reloading
     def do_GET(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')

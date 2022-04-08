@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ../timeserver_app
+    command: python3 server.py
+    environment:
+      KEY:  value
+    ports:
+      - "8080:80"
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: 123456
+
+volumes:
+    db_data:
