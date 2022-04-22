@@ -15,3 +15,4 @@ spec:
       containers:
       - name: timeserver-container
         image: docker.io/wdenniss/timeserver:latest
+        imagePullPolicy: Never
