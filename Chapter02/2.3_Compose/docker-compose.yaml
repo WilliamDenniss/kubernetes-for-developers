@@ -1,7 +1,9 @@
 services:
   web:
-    build: ../timeserver_app
+    build: ../timeserver
     command: python3 server.py
+    environment:
+      PYTHONUNBUFFERED: 1
     ports:
       - "8080:80"
 

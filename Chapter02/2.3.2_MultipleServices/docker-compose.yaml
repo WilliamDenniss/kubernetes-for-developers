@@ -1,9 +1,9 @@
 services:
   frontend:
-    build: ../timeserver_app
+    build: ../timeserver
     command: python3 server.py
     environment:
-      KEY:  value
+      PYTHONUNBUFFERED: 1
     ports:
       - "8080:80"
 
@@ -13,10 +13,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: super secret password
       MYSQL_DATABASE: my_database
       MYSQL_USER: dev_user
-      MYSQL_PASSWORD: 123456
+      MYSQL_PASSWORD: another secret password
 
 volumes:
     db_data:

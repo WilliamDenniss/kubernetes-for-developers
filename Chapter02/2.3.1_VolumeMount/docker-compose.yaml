@@ -7,6 +7,6 @@ services:
         source: .
         target: /app
     environment:
-      KEY:  value
+      PYTHONUNBUFFERED: 1
     ports:
       - "8080:80"
