@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:latest
+        image: docker.io/wdenniss/timeserver:1
