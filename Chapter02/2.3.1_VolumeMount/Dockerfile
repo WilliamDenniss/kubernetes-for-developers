@@ -1,8 +1,5 @@
 FROM python:3
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN pip install reloading
 COPY . /app
 WORKDIR /app 
-RUN pip install reloading
-ENV PYTHONPATH /app
 CMD python3 server.py

@@ -8,5 +8,6 @@ services:
         target: /app
     environment:
       PYTHONUNBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
     ports:
       - "8080:80"
