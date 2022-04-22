@@ -3,7 +3,7 @@ services:
     build: ../timeserver
     command: python3 server.py
     environment:
-      PYTHONUNBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
     ports:
       - "8080:80"
 
