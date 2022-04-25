@@ -11,10 +11,14 @@ class RequestHandler(BaseHTTPRequestHandler):
             case '/healthz':
                 self.respond_with(200, "Healthy")
             case '/readyz':
-                # TODO: verify any dependencies
-                self.respond_with(200, "Ready")
+                dependencies_connected = True 
+                # TODO: actually verify any dependencies
+                if (dependencies_connected):
+                    self.respond_with(200, "Ready")
+                else:
+                    self.respond_with(503, "Not Ready")
             case _:
-                self.respond_with(404, "Not found")
+                self.respond_with(404, "Not Found")
 
     def respond_with(self, status_code: int, content: str) -> None:
         self.send_response(status_code)
