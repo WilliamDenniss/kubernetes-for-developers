@@ -1,4 +1,3 @@
-# A Deployment that uses a priority class
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,11 +12,9 @@ spec:
       labels:
         pod: timeserver-pod
     spec:
-      priorityClassName: high-priority
+      tolerations:
+      - key: spot
+        value: "true"
       containers:
       - name: timeserver-container
         image: docker.io/wdenniss/timeserver:1
-        resources:
-          requests:
-            cpu: 200m
-            memory: 250Mi
