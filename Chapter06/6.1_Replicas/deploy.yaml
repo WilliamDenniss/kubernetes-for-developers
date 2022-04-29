@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: timeserver
 spec:
-  replicas: 1
+  replicas: 6
   selector:
     matchLabels:
       pod: timeserver-pod
