@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:1
+        image: docker.io/wdenniss/timeserver:4
         resources:
           requests:
-            cpu: 200m
+            cpu: 250m
             memory: 250Mi
