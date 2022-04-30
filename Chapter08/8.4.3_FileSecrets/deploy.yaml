@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pluscode-demo
+  name: timeserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pluscode
+      pod: timeserver-pod
   template:
     metadata:
       labels:
-        app: pluscode
+        pod: timeserver-pod
     spec:
       containers:
-      - name: pluscode-container
-        image: docker.io/wdenniss/pluscode-demo:latest
+      - name: timeserver-container
+        image: docker.io/wdenniss/timeserver:4
         volumeMounts:
         - name: secret-volume
           mountPath: "/etc/config"
