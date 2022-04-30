@@ -1,9 +1,9 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: pluscode-pdb
+  name: timeserver-pdb
 spec:
   maxUnavailable: 1
   selector:
     matchLabels:
-      app: pluscode
+      pod: timeserver-pod
