@@ -1,13 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: timeserver-demo
-  labels:
-    app: timeserver
+  name: timeserver-pod
 spec:
   containers:
   - name: timeserver-container
-    image: wdenniss/timeserver2:latest
+    image: wdenniss/timeserver:7
     securityContext:
       runAsNonRoot: true
       allowPrivilegeEscalation: false
