@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pluscode-ingress
+  name: timeserver-tls
 spec:
   tls:
     - secretName: my-tls-cert
@@ -13,13 +13,15 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: pluscode-service
+            name: timeserver-internal
             port:
               number: 80
-      - path: /pc2
+  - http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: pluscode-service
+            name: robohash-internal
             port:
               number: 80
