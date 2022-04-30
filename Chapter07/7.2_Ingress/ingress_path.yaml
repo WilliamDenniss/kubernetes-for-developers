@@ -4,8 +4,7 @@ metadata:
   name: pluscode-ingress
 spec:
   rules:
-  - host: foo.example.com
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -14,10 +13,7 @@ spec:
             name: pluscode-service
             port:
               number: 80
-  - host: bar.example.com
-    http:
-      paths:
-      - path: /
+      - path: /robohash
         pathType: Prefix
         backend:
           service:

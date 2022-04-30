@@ -3,8 +3,10 @@ kind: Ingress
 metadata:
   name: pluscode-ingress
 spec:
+  tls:
+    - secretName: my-tls-cert
   rules:
-  - host: foo.example.com
+  - host: example.com
     http:
       paths:
       - path: /
@@ -14,10 +16,7 @@ spec:
             name: pluscode-service
             port:
               number: 80
-  - host: bar.example.com
-    http:
-      paths:
-      - path: /
+      - path: /pc2
         pathType: Prefix
         backend:
           service:
