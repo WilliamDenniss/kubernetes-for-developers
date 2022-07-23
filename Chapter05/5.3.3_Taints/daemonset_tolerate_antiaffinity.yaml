@@ -16,6 +16,15 @@ spec:
         operator: Exists
       - effect: NoSchedule
         operator: Exists
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: NotIn
+                values:
+                - arm64
       containers:
       - image: ubuntu
         command: ["sleep", "infinity"]
