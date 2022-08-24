@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: timeserver-pod
+  template:
+    metadata:
+      labels:
+        pod: timeserver-pod
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              pod: timeserver-pod
+      containers:
+      - name: timeserver-container
+        image: docker.io/wdenniss/timeserver:1
+        resources:
+          requests:
+            cpu: 200m
+            memory: 250Mi
+          limits:
+            cpu: 300m
+            memory: 400Mi

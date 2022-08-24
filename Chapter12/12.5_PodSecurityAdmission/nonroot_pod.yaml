@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: timeserver-pod
+spec:
+  containers:
+  - name: timeserver-container
+    image: wdenniss/timeserver:7
+    securityContext:
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      runAsUser: 1001
+      capabilities:
+        drop:
+          - ALL

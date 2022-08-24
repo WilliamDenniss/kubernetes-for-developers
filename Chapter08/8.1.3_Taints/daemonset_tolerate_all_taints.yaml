@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: example-ds
+spec:
+  selector:
+    matchLabels:
+      pod: example-pod
+  template:
+    metadata:
+      labels:
+        pod: example-pod
+    spec:
+      tolerations:
+      - effect: NoExecute
+        operator: Exists
+      - effect: NoSchedule
+        operator: Exists
+      containers:
+      - image: ubuntu
+        command: ["sleep", "infinity"]
+        name: ubuntu-container

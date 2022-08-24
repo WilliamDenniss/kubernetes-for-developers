@@ -1,26 +1,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pluscode-ingress
+  name: timeserver-ingress
 spec:
   rules:
-  - host: foo.example.com
+  - host: timeserver.example.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: pluscode-service
+            name: timeserver-internal
             port:
               number: 80
-  - host: bar.example.com
+  - host: robohash.example.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: pluscode-service
+            name: robohash-internal
             port:
               number: 80

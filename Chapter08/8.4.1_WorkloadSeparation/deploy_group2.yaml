@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeserver2
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      pod: timeserver2-pod
+  template:
+    metadata:
+      labels:
+        pod: timeserver2-pod
+    spec:
+      tolerations:
+      - key: group
+        operator: Equal
+        value: "2"
+        effect: NoSchedule
+      nodeSelector:
+        group: "2"
+      containers:
+      - name: timeserver-container
+        image: docker.io/wdenniss/timeserver:1

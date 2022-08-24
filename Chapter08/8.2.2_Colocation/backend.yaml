@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: mariadb-pod
+  template:
+    metadata:
+      labels:
+        pod: mariadb-pod
+    spec:
+      containers:
+      - name: mariadb-container
+        image: mariadb
+        env:
+          - name: MARIADB_RANDOM_ROOT_PASSWORD
+            value: "1"

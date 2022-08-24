@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build: .
+    command: python3 server.py
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    environment:
+      PYTHONDONTWRITEBYTECODE: 1
+    ports:
+      - "8080:80"

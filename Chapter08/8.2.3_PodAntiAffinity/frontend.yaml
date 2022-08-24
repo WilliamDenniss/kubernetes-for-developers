@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: timeserver-pod
+  template:
+    metadata:
+      labels:
+        pod: timeserver-pod
+    spec:
+      containers:
+      - name: timeserver-container
+        image: docker.io/wdenniss/timeserver:1
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: pod
+                operator: In
+                values:
+                - mariadb-pod
+            topologyKey: "kubernetes.io/hostname"

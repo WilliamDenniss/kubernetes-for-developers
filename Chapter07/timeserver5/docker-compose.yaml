@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      AVATAR_ENDPOINT: http://robohash
+    
+
+  robohash:
+    image: wdenniss/robohash:v1
+    ports:
+      - "8089:80"
+  
