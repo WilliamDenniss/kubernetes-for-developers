@@ -6,11 +6,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: pi
+      pod: pi
   template:
     metadata:
       labels:
-        app: pi
+        pod: pi
     spec:
       containers:
       - name: pi-container
