@@ -7,7 +7,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         now = datetime.now()
-        response_string = now.strftime("The time is %-I:%M %p, UTC.")
+        response_string = now.strftime("The time is %-I:%M %p, UTC.\n")
         self.wfile.write(bytes(response_string, "utf-8")) 
 
 def startServer():
