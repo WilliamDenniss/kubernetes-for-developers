@@ -27,3 +27,5 @@ while running:
     if os.getenv('COMPLETE_WHEN_EMPTY', '0') != '0':
       print ("no more work")
       running = False
+
+exit(0)
