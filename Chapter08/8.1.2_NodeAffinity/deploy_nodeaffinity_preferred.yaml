@@ -12,14 +12,16 @@ spec:
       labels:
         pod: timeserver-pod
     spec:
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        preference:
-          matchExpressions:
-          - key: kubernetes.io/arch
-            operator: In
-            values:
-            - arm64
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - arm64
       containers:
       - name: timeserver-container
         image: docker.io/wdenniss/timeserver:3
