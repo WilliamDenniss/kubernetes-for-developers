@@ -40,7 +40,7 @@ spec:
           # Copy appropriate config files from config-map to emptyDir.
           mkdir -p /redis/conf/
           if [[ $ordinal -eq 0 ]]; then
-            cp /mnt/redis-configmap/master.conf /redis/conf/redis.conf
+            cp /mnt/redis-configmap/primary.conf /redis/conf/redis.conf
           else
             cp /mnt/redis-configmap/replica.conf /redis/conf/redis.conf
           fi
