@@ -3,7 +3,9 @@ import random
 
 redis_host = os.environ.get('REDIS_HOST')
 assert redis_host != None
-r = redis.Redis(host=redis_host, port='6379', decode_responses=True)
+r = redis.Redis(host=redis_host,
+                port='6379',
+                decode_responses=True)
 
 random.seed()
 for i in range(0, 10):
