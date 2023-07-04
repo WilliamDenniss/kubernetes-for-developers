@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: jobworker
+spec:
+  backoffLimit: 2
+  parallelism: 2
+  template:
+    metadata:
+      labels:
+        pod: pi
+    spec:
+      containers:
+      - name: pi-container
+        image: docker.io/wdenniss/pi_worker:4
+        env:
+        - name: REDIS_HOST
+          value: redis-0.redis-service
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        - name: COMPLETE_WHEN_EMPTY
+          value: "0"
+        livenessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          exec:
+            command: ["./check_liveness.sh", "logs/lastrun.date", "300"]
+          successThreshold: 1
+          timeoutSeconds: 1
+      restartPolicy: OnFailure
