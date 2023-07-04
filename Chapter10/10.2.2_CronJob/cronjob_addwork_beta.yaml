@@ -10,7 +10,7 @@ spec:
       template:
         spec:
           containers:
-          - name: pi
+          - name: pi-container
             image: docker.io/wdenniss/pi_worker:v1
             command: ["python3",  "add_tasks.py"]
             env:

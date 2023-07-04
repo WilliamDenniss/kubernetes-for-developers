@@ -11,7 +11,7 @@ spec:
         pod: pi
     spec:
       containers:
-      - name: pi
+      - name: pi-container
         image: docker.io/wdenniss/pi_worker:v3
         env:
         - name: REDIS_HOST
