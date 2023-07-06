@@ -2,6 +2,7 @@ import os
 import signal
 import redis
 from pi import *
+from liveness import *
 
 redis_host = os.environ.get('REDIS_HOST')
 assert redis_host != None
