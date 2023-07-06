@@ -14,9 +14,10 @@ spec:
     spec:
       containers:
       - name: pi-container
-        image: docker.io/wdenniss/pi_worker:v1
+        image: docker.io/wdenniss/pi_worker:1
         env:
         - name: REDIS_HOST
           value: redis-0.redis-service
         - name: PYTHONUNBUFFERED
           value: "1"
+

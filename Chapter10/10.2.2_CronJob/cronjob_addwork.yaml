@@ -11,7 +11,7 @@ spec:
         spec:
           containers:
           - name: pi-container
-            image: docker.io/wdenniss/pi_worker:v2
+            image: docker.io/wdenniss/pi_worker:2
             command: ["python3",  "add_tasks.py"]
             env:
             - name: REDIS_HOST

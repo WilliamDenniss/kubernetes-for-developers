@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: pi-container
-        image: docker.io/wdenniss/pi_worker:v3
+        image: docker.io/wdenniss/pi_worker:3
         env:
         - name: REDIS_HOST
           value: redis-0.redis-service

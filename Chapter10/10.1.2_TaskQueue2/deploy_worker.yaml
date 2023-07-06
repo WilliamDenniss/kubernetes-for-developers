@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: pi-container
-        image: docker.io/wdenniss/pi_worker:v2
+        image: docker.io/wdenniss/pi_worker:2
         imagePullPolicy: Always
         env:
         - name: REDIS_HOST
