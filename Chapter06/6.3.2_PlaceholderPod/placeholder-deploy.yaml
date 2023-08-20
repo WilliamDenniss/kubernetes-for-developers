@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: balloon-deploy
+  name: placeholder
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: balloon
+      pod: placeholder-pod
   template:
     metadata:
       labels:
-        app: balloon
+        pod: placeholder-pod
     spec:
-      priorityClassName: balloon-priority
+      priorityClassName: placeholder-priority
       terminationGracePeriodSeconds: 0
       containers:
       - name: ubuntu
