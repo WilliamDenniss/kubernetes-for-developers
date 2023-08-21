@@ -5,4 +5,4 @@ metadata:
 value: -10
 preemptionPolicy: Never
 globalDefault: false
-description: "Placeholder pod priority."
+description: "Placeholder Pod priority."

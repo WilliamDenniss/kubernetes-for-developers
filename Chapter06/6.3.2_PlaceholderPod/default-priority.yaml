@@ -5,4 +5,4 @@ metadata:
 value: 0
 preemptionPolicy: PreemptLowerPriority
 globalDefault: true
-description: "The global default priority. Will preempt the placeholder pods."
+description: "The global default priority. Will preempt the placeholder Pods."
