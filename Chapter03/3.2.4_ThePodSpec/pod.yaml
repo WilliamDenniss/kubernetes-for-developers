@@ -6,5 +6,5 @@ metadata:
     pod: timeserver-pod
 spec:
   containers:
-    - name: timeserver-container
-      image: docker.io/wdenniss/timeserver:1
+  - name: timeserver-container
+    image: docker.io/wdenniss/timeserver:1
