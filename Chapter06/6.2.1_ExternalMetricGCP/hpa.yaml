@@ -5,10 +5,6 @@ metadata:
 spec:
   minReplicas: 1
   maxReplicas: 6
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: timeserver
   metrics:
   - type: External
     external:
@@ -16,7 +12,11 @@ spec:
         name: loadbalancing.googleapis.com|https|request_count
         selector:
           matchLabels:
-            resource.labels.forwarding_rule_name: "k8s2-fr-21mgs2fl-default-timeserver-ingress-s2j1ki7x"
+            resource.labels.forwarding_rule_name: "k8s2-fr-21mgs2fl"
       target:
         type: AverageValue
         averageValue: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: timeserver
