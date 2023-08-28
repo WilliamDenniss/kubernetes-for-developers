@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:4
+        image: docker.io/wdenniss/timeserver:5
         env:
         - name: AVATAR_ENDPOINT
           value: http://robohash-internal
