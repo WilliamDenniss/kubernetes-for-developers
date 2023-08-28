@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: robohash-container
-        image: wdenniss/robohash:v1
+        image: docker.io/wdenniss/robohash:1
