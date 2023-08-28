@@ -18,7 +18,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.respond_with(200, response_string)
             case '/healthz':
                 if (datetime.now() > last_ready_time + timedelta(minutes=5)):
-                    self.respond_with(200, "Not Healthy")
+                    self.respond_with(503, "Not Healthy")
                 else:
                     self.respond_with(200, "Healthy")
             case '/readyz':
