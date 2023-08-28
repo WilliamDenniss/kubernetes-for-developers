@@ -21,7 +21,7 @@ spec:
               pod: timeserver-pod
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:1
+        image: docker.io/wdenniss/timeserver:5
         resources:
           requests:
             cpu: 200m

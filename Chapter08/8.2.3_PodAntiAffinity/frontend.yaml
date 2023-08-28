@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:1
+        image: docker.io/wdenniss/timeserver:5
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

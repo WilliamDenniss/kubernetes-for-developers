@@ -23,4 +23,4 @@ spec:
                 - arm64
       containers:
       - name: timeserver-container
-        image: docker.io/wdenniss/timeserver:3
+        image: docker.io/wdenniss/timeserver:5
