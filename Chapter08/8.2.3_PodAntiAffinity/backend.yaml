@@ -16,8 +16,8 @@ spec:
       - name: mariadb-container
         image: mariadb
         env:
-          - name: MARIADB_RANDOM_ROOT_PASSWORD
-            value: "1"
+        - name: MARIADB_RANDOM_ROOT_PASSWORD
+          value: "1"
         resources:
           requests:
             cpu: 20m
