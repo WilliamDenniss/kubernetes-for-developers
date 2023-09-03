@@ -12,6 +12,11 @@ spec:
       labels:
         pod: timeserver-pod
     spec:
+      tolerations:
+      - effect: NoSchedule
+        key: kubernetes.io/arch
+        operator: Equal
+        value: arm64
       nodeSelector:
         cloud.google.com/compute-class: Scale-Out    
       affinity:
