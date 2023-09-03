@@ -13,19 +13,17 @@ spec:
         pod: timeserver-pod
     spec:
       topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: kubernetes.io/hostname
-          whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              pod: timeserver-pod
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: ScheduleAnyway
+        labelSelector:
+          matchLabels:
+            pod: timeserver-pod
       containers:
       - name: timeserver-container
         image: docker.io/wdenniss/timeserver:5
         resources:
+        
           requests:
-            cpu: 200m
+            cpu: 250m
             memory: 250Mi
-          limits:
-            cpu: 300m
-            memory: 400Mi
