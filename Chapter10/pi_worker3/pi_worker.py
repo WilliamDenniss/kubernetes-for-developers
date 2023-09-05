@@ -5,8 +5,9 @@ from pi import *
 
 redis_host = os.environ.get('REDIS_HOST')
 assert redis_host != None
-r = redis.Redis(host=redis_host, port= '6379', decode_responses=True)
-
+r = redis.Redis(host=redis_host,
+                port='6379',
+                decode_responses=True)
 running = True
 
 def signal_handler(signum, frame):
