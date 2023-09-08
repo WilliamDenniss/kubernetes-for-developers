@@ -25,9 +25,9 @@ spec:
         - name: redis-pvc
           mountPath: /redis/data
         resources:
-            requests:
-              cpu: 1
-              memory: 4Gi
+          requests:
+            cpu: 1
+            memory: 4Gi
       volumes:
       - name: redis-configmap-volume
         configMap:

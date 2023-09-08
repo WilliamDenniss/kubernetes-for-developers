@@ -6,21 +6,21 @@ metadata:
     pod: timeserver-pod
 spec:
   containers:
-    - name: timeserver-container
-      image: docker.io/wdenniss/timeserver:1
-      volumeMounts:
-      - mountPath: "/scratch"
-        name: scratch-volume
+  - name: timeserver-container
+    image: docker.io/wdenniss/timeserver:1
+    volumeMounts:
+    - mountPath: "/scratch"
+      name: scratch-volume
   volumes:
-    - name: scratch-volume
-      ephemeral:
-        volumeClaimTemplate:
-          metadata:
-            labels:
-              type: scratch-volume
-          spec:
-            accessModes: [ "ReadWriteOnce" ]
-            storageClassName: "ephemeral"
-            resources:
-              requests:
-                storage: 1Ti
+  - name: scratch-volume
+    ephemeral:
+      volumeClaimTemplate:
+        metadata:
+          labels:
+            type: scratch-volume
+        spec:
+          accessModes: [ "ReadWriteOnce" ]
+          storageClassName: "ephemeral"
+          resources:
+            requests:
+              storage: 1Ti

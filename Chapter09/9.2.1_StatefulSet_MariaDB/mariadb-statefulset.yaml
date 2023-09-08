@@ -32,7 +32,7 @@ spec:
       name: mariadb-pvc
     spec:
       accessModes:
-        - ReadWriteOnce
+      - ReadWriteOnce
       resources:
         requests:
           storage: 2Gi
