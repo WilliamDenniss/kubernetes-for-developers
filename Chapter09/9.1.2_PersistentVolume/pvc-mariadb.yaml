@@ -29,7 +29,7 @@ metadata:
   name: mariadb-pv-claim
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 2Gi

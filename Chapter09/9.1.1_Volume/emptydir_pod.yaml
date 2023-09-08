@@ -6,11 +6,11 @@ metadata:
     pod: timeserver-pod
 spec:
   containers:
-    - name: timeserver-container
-      image: docker.io/wdenniss/timeserver:5
-      volumeMounts:
-      - name: cache-volume
-        mountPath: /app/cache/
+  - name: timeserver-container
+    image: docker.io/wdenniss/timeserver:5
+    volumeMounts:
+    - name: cache-volume
+      mountPath: /app/cache/
   volumes:
   - name: cache-volume
     emptyDir: {}
