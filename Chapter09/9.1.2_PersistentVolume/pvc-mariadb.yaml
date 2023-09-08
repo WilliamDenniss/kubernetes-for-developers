@@ -12,12 +12,12 @@ spec:
     - mountPath: /var/lib/mysql
       name: mariadb-volume
     resources:
-        requests:
-          cpu: 1
-          memory: 4Gi
+      requests:
+        cpu: 1
+        memory: 4Gi
     env:
-      - name: MYSQL_ROOT_PASSWORD
-        value: "your database password"
+    - name: MARIADB_ROOT_PASSWORD
+      value: "your database password"
   volumes:
   - name: mariadb-volume
     persistentVolumeClaim:

@@ -21,8 +21,8 @@ spec:
     - mountPath: /var/lib/mysql
       name: mariadb-volume
     env:
-      - name: MYSQL_ROOT_PASSWORD
-        value: "your database password"
+    - name: MARIADB_ROOT_PASSWORD
+      value: "your database password"
   volumes:
   - name: mariadb-volume
     gcePersistentDisk:
