@@ -1,0 +1,21 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    components.gke.io/component-name: pdcsi
+    components.gke.io/component-version: 0.16.11
+    components.gke.io/layer: addon
+    storageclass.kubernetes.io/is-default-class: "true"
+  creationTimestamp: "2023-08-16T17:51:10Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    k8s-app: gcp-compute-persistent-disk-csi-driver
+  name: standard-rwo
+  resourceVersion: "1263"
+  uid: adbc1224-988c-482b-889b-f1b9ba7ecef3
+parameters:
+  type: pd-balanced
+provisioner: pd.csi.storage.gke.io
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer

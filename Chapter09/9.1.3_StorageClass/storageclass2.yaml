@@ -1,0 +1,10 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard-rwo
+parameters:
+  type: pd-balanced
+provisioner: pd.csi.storage.gke.io
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
