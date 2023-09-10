@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: redis-config
+  name: redis-role-config
 data:
   primary.conf: |
     bind 0.0.0.0
