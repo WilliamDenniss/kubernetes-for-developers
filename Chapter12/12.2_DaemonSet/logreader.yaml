@@ -5,16 +5,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      ds: logreaderpod
+      pod: logreader-pod
   template:
     metadata:
       labels:
-        ds: logreaderpod
+        pod: logreader-pod
     spec:
       containers:
       - image: ubuntu
         command: ["tail", "-f", "/var/log/kube-proxy.log"]
-        name: logreadercontainer
+        name: logreader-container
         resources:
           requests:
             cpu: 50m
