@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: timeserver-container
-    image: wdenniss/timeserver:7
+    image: docker.io/wdenniss/timeserver:7
     securityContext:
       runAsNonRoot: true
       allowPrivilegeEscalation: false
