@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: admin-workload
+spec:
+  selector:
+    matchLabels:
+      name: admin-app
+  template:
+    metadata:
+      labels:
+        name: admin-app
+    spec:
+      containers:
+      - name: admin-container
+        image: ubuntu
+        command: ["sleep", "infinity"]
+        securityContext:
+          privileged: false
