@@ -13,7 +13,11 @@ spec:
     spec:
       containers:
       - image: ubuntu
-        command: ["tail", "-f", "/var/log/kube-proxy.log"]
+        command:
+        - bash
+        - "-c"
+        - |
+          tail -f /var/log/containers/*.log
         name: logreader-container
         resources:
           requests:
