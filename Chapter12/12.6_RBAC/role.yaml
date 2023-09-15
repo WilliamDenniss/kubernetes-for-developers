@@ -15,6 +15,7 @@ rules:
     - events
     - pods
     - pods/log
+    - pods/portforward
     - services
     - secrets
     - configmaps
