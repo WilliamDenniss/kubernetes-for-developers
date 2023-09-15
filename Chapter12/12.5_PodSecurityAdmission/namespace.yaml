@@ -4,4 +4,4 @@ metadata:
   name: team1
   labels:
     pod-security.kubernetes.io/enforce: restricted
-    pod-security.kubernetes.io/enforce-version: v1.23
+    pod-security.kubernetes.io/enforce-version: latest
