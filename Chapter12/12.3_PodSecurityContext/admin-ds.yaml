@@ -16,4 +16,4 @@ spec:
         image: ubuntu
         command: ["sleep", "infinity"]
         securityContext:
-          privileged: false
+          privileged: true
