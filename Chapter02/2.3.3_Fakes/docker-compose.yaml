@@ -1,6 +1,6 @@
 services:
 
-  storage: #A
+  storage:
     image: minio/minio
     command: minio server /data
     volumes:
