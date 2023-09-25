@@ -28,4 +28,3 @@ spec:
 #       For this example in GCP using the zone us-west-1a, and a disk with the name `mariadb-disk` you
 #       can run:
 #       `gcloud compute disks create --size=10GB --zone=us-west1-a mariadb-disk`
-

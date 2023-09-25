@@ -28,4 +28,3 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
       terminationGracePeriodSeconds: 120
- 
