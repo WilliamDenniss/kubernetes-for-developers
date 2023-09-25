@@ -21,11 +21,11 @@ spec:
         - name: PYTHONUNBUFFERED
           value: "1"
         livenessProbe:
-            initialDelaySeconds: 60
-            periodSeconds: 30
-            exec:
-              command: ["./check_liveness.sh", "logs/lastrun.date", "300"]
-            successThreshold: 1
-            timeoutSeconds: 1
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          exec:
+            command: ["./check_liveness.sh", "logs/lastrun.date", "300"]
+          successThreshold: 1
+          timeoutSeconds: 1
       terminationGracePeriodSeconds: 120
  

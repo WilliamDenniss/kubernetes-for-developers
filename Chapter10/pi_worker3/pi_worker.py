@@ -11,8 +11,8 @@ r = redis.Redis(host=redis_host,
 running = True
 
 def signal_handler(signum, frame):
-    print("got signal")
-    running = False
+  print("got signal")
+  running = False
 
 signal.signal(signal.SIGTERM, signal_handler)
 

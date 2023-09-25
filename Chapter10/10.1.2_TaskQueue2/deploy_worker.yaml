@@ -21,8 +21,8 @@ spec:
         - name: PYTHONUNBUFFERED
           value: "1"
         resources:
-            requests:
-              cpu: 250m
-              memory: 250Mi
+          requests:
+            cpu: 250m
+            memory: 250Mi
       terminationGracePeriodSeconds: 120
 
