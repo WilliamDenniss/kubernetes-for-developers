@@ -3,6 +3,9 @@ kind: Pod
 metadata:
   name: timeserver-pod
 spec:
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
   containers:
   - name: timeserver-container
     image: docker.io/wdenniss/timeserver:7
