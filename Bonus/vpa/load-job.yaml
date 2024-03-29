@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-generate
+spec:
+  backoffLimit: 1000
+  completions: 1000
+  template:
+    spec:
+      containers:
+      - name: ab-container
+        image: docker.io/jordi/ab
+        command: ["ab", "-n", "1000000000", "-c", "20", "-s", "120", "http://timeserver/"]
+      restartPolicy: OnFailure
